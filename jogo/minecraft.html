@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minecraft</title>
+    </head>
+    <body>
+        <script src="libs/three.js"></script>
+        <script src="libs/perlin.js"></script>
+        <script type="text/javascript">
+            var scene = new THREE.scene();
+            var renderer = THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+            var camera = new THREE.PerspectiveCamera(75, window.innerWidth / 
+                window.innerHeight, 0.1, 1000);
+            
+
+            function block(x, y, z){
+                this.x = x;
+                this.y = y;
+                this.z = z;
+
+                this.display = function(){
+                    var blockBox = new THREE.BoxBufferGeometry(5, 5, 5);
+                    var blockMesh = new THREE.MeshBasicMatrial({color : 0x228f18});
+                    var block = new THREE.Mesh(blockBox, blockMesh);
+                    scene.add(block);
+                    block.position.x = this.x;
+                    block.position.y = this.y;
+                    block.position.z = this.z;
+
+                    var edges = new THREE.EdgeGeometry(blockBox);
+                    var line = new THREE.LineSegment(edges, new THREE.
+                    LineBasicMaterial({color : 0x000000}));
+                    scene.add(line);
+                    line.position.x = this.x;
+                    line.position.y = this.y;
+                    line.position.z = this.z;
+                }
+            }
+
+            function update(){
+                
+            }
+
+            window.addEventListener("resize", function(){
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+
+            });
+
+            function render(){
+                renderer.render(scene, camera);
+            }
+
+            function GameLoop(){
+                requestAnimationFrame(GameLoop);
+                update();
+                render();
+            }
+
+            GameLoop();
+            
+        </script>
+    </body>
+</html>
