@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso de HTML</title>
+	<style>
+		body {
+			font-family: monospace;
+			background-color: #000;
+			color: #fff;
+			margin: 0;
+			padding: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			text-align: center;
+		}
+
+		h1 {
+			color: #0f0;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+			background-color: #000;
+			padding: 10px;
+			border-radius: 10px;
+			box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.1);
+			transition: all 0.3s ease;
+		}
+
+		h1:hover {
+			background-color: #111;
+			box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), -2px -2px 4px rgba(255, 255, 255, 0.1);
+			transform: translateY(-2px);
+		}
+
+		hr {
+			border: none;
+			height: 1px;
+			background-color: #fff;
+		}
+
+		.command {
+			text-decoration: none;
+			color: #fff;
+			display: block;
+			margin-bottom: 10px;
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #0f0;
+			background-color: #111;
+			box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+			transition: all 0.3s ease;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.command::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: 5px;
+			background-color: #0f0;
+			animation: blink 1s infinite;
+		}
+
+		@keyframes blink {
+			0%, 50%, 100% {
+				opacity: 0;
+			}
+			25%, 75% {
+				opacity: 1;
+			}
+		}
+
+		.command:hover {
+			box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+			transform: translateY(-2px);
+		}
+	</style>
+</head>
+<body>
+	<h1>$ MENU</h1>
+	<hr>
+	<a href="exercicioprincipal.html" target="principal" class="command">Pagina Principal</a>
+	<a href="paginaprincipal.html" target="principal" class="command">Explicação HTML</a>
+	<a href="rodape.html" target="principal" class="command">Rodapé</a>
+	<a href="jogo/3dminecraft.html" target="principal" class="command">Um Joguinho</a>
+</body>
+</html>
